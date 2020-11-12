@@ -24,12 +24,17 @@
         .mainWrapperSearchFilter {
           position: relative;
           transform: translateY(-50%);
-
-          .SearchFilter {
-            
-          }
         }
         
+        .title {
+          font-size: $largeTextSize;
+          margin-bottom: $closeSpace;
+        }
+
+        .resultNumber {
+          font-size: 18px;
+          color: $lightGrayColor;
+        }
       }
     }
   }

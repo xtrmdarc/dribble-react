@@ -13,6 +13,12 @@ const Search = () => {
             <div className={styles.mainWrapperSearchFilter}>
               <SearchFilter className={styles.SearchFilter} />
             </div>
+            <h2 className={styles.title}>
+              Web ui
+            </h2>
+            <span className={styles.resultNumber}>
+              10,000+ web ui images
+            </span>
           </div>
         </section>
       </main>
