@@ -1,0 +1,52 @@
+@import '../variables';
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $closeSpace;
+  height: $headerHeight;
+  color: $darkGrayColor;
+
+  .leftSection {
+    display: flex;
+    align-items: center;
+  
+    .logo {
+      // height: calc(#{$headerHeight} / 2);
+    }
+
+    nav {
+      display: flex;
+      ul {
+        display: flex;
+        list-style-type: none;
+
+        li {
+          margin-right: $closeSpace;
+        }
+      }
+    }
+  }
+
+  .rightSection {
+
+    button {
+      margin-left: calc(#{$closeSpace} / 1.4);
+      padding: calc(#{$closeSpace} / 1.4) $closeSpace;
+      border-radius: 8px;
+
+      &.accent {
+        background: $accentColor;
+        color: white;
+      }
+
+      &.blank {
+        background: white;
+        color: black;
+      }
+    }
+  }
+
+  
+}
