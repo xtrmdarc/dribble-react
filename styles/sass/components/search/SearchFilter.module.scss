@@ -1,0 +1,36 @@
+@import '../../variables';
+
+.SearchFilter {
+  display: flex;
+  max-width: 100%;  
+  width: 700px;
+  background: white;
+  padding: calc(#{$closeSpace} * 1.1) $broadSpace;
+  box-shadow: $lightBoxShadow;
+  border-radius: 10px;
+  align-items: center;
+
+  .leftSection {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    .searchIcon {
+      margin-right: $closeSpace;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      font-size: 18px;
+    }
+  }
+
+  hr {
+    border-left: 1px solid $lightGrayColor;
+    height: 20px;
+  }
+
+  .rigthSection {
+    padding: 0 $closeSpace;
+  } 
+}

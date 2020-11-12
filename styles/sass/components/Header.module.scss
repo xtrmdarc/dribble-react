@@ -30,6 +30,8 @@
   }
 
   .rightSection {
+    display: flex;
+    align-items: center;
 
     button {
       margin-left: calc(#{$closeSpace} / 1.4);

@@ -1,0 +1,36 @@
+@import './variables';
+
+.Search {
+  display: flex; 
+  flex-direction: column;
+
+  .contentWrapper {
+    display: flex;
+    flex-direction: column;
+
+    .outerSearchWrapper {
+
+      .halfBackground {
+        background: $grayColor;
+        height: $headerHeight;
+      }
+
+      .searchWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+
+        .mainWrapperSearchFilter {
+          position: relative;
+          transform: translateY(-50%);
+
+          .SearchFilter {
+            
+          }
+        }
+        
+      }
+    }
+  }
+}
