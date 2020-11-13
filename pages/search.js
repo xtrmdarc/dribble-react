@@ -1,4 +1,5 @@
 import Header from '../components/Header';
+import ProjectsList from '../components/search/ProjectsList';
 import SearchFilter from '../components/search/SearchFilter';
 import styles from '../styles/sass/Search.module.scss';
 
@@ -20,6 +21,9 @@ const Search = () => {
               10,000+ web ui images
             </span>
           </div>
+        </section>
+        <section className={styles.ProjectListWrapper}>
+          <ProjectsList />
         </section>
       </main>
     </div>

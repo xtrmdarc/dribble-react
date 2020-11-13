@@ -1,0 +1,115 @@
+@import '../../variables';
+
+.ProjectItem {
+  display: flex;
+  flex-direction: column;
+
+  .portrait {
+    display: flex;
+    width: 100%;
+    position: relative;
+
+    .mainImage {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .hoverActions {
+      display: none;
+      position: absolute;
+      align-items: center;
+      justify-content: center;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      border-radius: 10px;
+      padding: $broadSpace $closeSpace;
+
+      .description {
+        color: white;
+        font-size: 16px;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: flex-end;
+        li {
+          list-style-type: none;
+          margin-left: calc(#{$closeSpace} / 1.4);
+
+          button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: calc(#{$closeSpace} / 2.2);
+            border-radius: 5px;
+            svg {
+              width: 16px;
+              height: 16px;
+              fill: gray;
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+
+      .hoverActions {
+        display: flex;
+        background: linear-gradient(transparent, black);
+      }
+    }
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    padding: calc(#{$closeSpace} / 2) 0;
+    align-items: center;
+
+    .leftSection {
+      display: flex;
+      align-items: center;
+
+      .nameUser {
+        margin-right: calc(#{$closeSpace} / 1.4);
+      }
+
+      .tag {
+        display: flex;
+        background-color: $lightGrayColor;
+        padding: 2px 4px;
+        font-size: 10px;
+        color: white;
+      }
+    }
+
+    .rightSection {
+      .userActions {
+        display: flex;
+        align-items: center;
+
+        span {
+          display: flex;
+          align-items: center;
+          margin-left: calc(#{$closeSpace} / 2);
+          font-size: 12px;
+          color: $lightGrayColor;
+
+          svg {
+            margin-right: calc(#{$closeSpace} / 3);
+            fill: gray;
+
+            &:hover {
+              fill: $accentColor;
+            }
+          }
+        }
+      }
+    }
+  }
+}

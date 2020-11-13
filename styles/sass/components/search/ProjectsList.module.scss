@@ -1,0 +1,12 @@
+
+.ProjectsList  {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+
+  .ProjectItem {
+    width: calc( ((100% - 30px) / 3) );
+
+  }
+}

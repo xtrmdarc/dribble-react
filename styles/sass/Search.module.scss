@@ -9,6 +9,8 @@
     flex-direction: column;
 
     .outerSearchWrapper {
+      padding-bottom: $closeSpace;
+      margin-bottom: $broadSpace;
 
       .halfBackground {
         background: $grayColor;
@@ -36,6 +38,10 @@
           color: $lightGrayColor;
         }
       }
+    }
+
+    .ProjectListWrapper {
+      margin: 0 calc(#{$broadSpace} * 2);
     }
   }
 }
