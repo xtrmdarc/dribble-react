@@ -1,11 +1,16 @@
 import styles from '../../styles/sass/components/search/ProjectsList.module.scss';
 import ProjectItem from './ProjectItem';
 
-const ProjectsList = () => {
+const ProjectsList = (props) => {
+  const {projects} = props;
 
   return (
     <section className={styles.ProjectsList}>
-      <ProjectItem className={styles.ProjectItem} />            
+      {
+        projects.map(project => (
+          <ProjectItem className={styles.ProjectItem} project={project} />
+        ))
+      }
     </section>
   )
 }

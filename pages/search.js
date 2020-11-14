@@ -1,9 +1,13 @@
 import Header from '../components/Header';
 import ProjectsList from '../components/search/ProjectsList';
 import SearchFilter from '../components/search/SearchFilter';
+import backendApi from '../lib/backendApi';
 import styles from '../styles/sass/Search.module.scss';
 
-const Search = () => {
+const Search = props => {
+
+  const {projects} = props;
+
   return (
     <div className={styles.Search}>
       <Header />
@@ -23,11 +27,19 @@ const Search = () => {
           </div>
         </section>
         <section className={styles.ProjectListWrapper}>
-          <ProjectsList />
+          <ProjectsList projects={projects} />
         </section>
       </main>
     </div>
   );
 };
+
+export async function getStaticProps(context) {
+  return {
+    props: {
+      projects: await backendApi.getProjects(),
+    }
+  }
+}
 
 export default Search;
