@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import Header from '../components/Header';
 import ProjectsList from '../components/search/ProjectsList';
 import SearchFilter from '../components/search/SearchFilter';
 import backendApi from '../lib/backendApi';
+import { changeSearchQuery } from '../redux/actions';
 import styles from '../styles/sass/Search.module.scss';
 
 const Search = props => {
-  const { projectsList } = props;
+  const { projectsList, query, setQuery } = props;
   const [projects, setProjects] = useState(projectsList);
-  const [query, setQuery] = useState('');
 
   const queryProjects = () => {
     backendApi.getProjectsByQuery(query)
@@ -49,4 +50,12 @@ export async function getStaticProps(context) {
   }
 }
 
-export default Search;
+const mapStateToProps = (state) => ({
+  query: state.search.query,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setQuery: (query) => dispatch(changeSearchQuery(query)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
