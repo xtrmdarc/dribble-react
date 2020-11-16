@@ -1,0 +1,50 @@
+@import '../../variables';
+
+.CategoriesFilter {
+  display: flex;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  margin-left: 0;
+  padding-left: 0;
+  
+  .categoryItem {
+    display: flex;
+    margin-right: $closeSpace;
+    font-size: 16px;
+    font-weight: 300;
+    color: $lightGrayColor;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+
+.filterWrapper {
+  position: relative;
+  padding: 0 $closeSpace;
+  display: flex;
+  align-items: center;
+  margin-bottom: $broadSpace;
+
+  .rightScroll {
+    position: absolute;
+    right: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .leftScroll {
+    position: absolute;
+    left: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

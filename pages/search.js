@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
+import CategoriesFilter from '../components/search/CategoriesFilter';
 import ProjectsList from '../components/search/ProjectsList';
 import SearchFilter from '../components/search/SearchFilter';
 import backendApi from '../lib/backendApi';
@@ -35,6 +36,9 @@ const Search = props => {
           </div>
         </section>
         <section className={styles.ProjectListWrapper}>
+          <div className="filtersSection">
+            <CategoriesFilter />
+          </div>
           <ProjectsList projects={projects} />
         </section>
       </main>

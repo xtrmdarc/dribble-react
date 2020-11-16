@@ -1,13 +1,14 @@
 @import '../../variables';
 
-.ProjectsList  {
+.ProjectsList {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
+  margin: $closeSpace calc(#{$closeSpace} *  -1);
 
   .ProjectItem {
     width: calc( ((100% - #{$closeSpace * 3 * 2}) / 3) );
     margin: 0 $closeSpace $closeSpace $closeSpace;
   }
 }
+
