@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import ProjectsList from '../components/search/ProjectsList';
 import SearchFilter from '../components/search/SearchFilter';
@@ -5,8 +6,14 @@ import backendApi from '../lib/backendApi';
 import styles from '../styles/sass/Search.module.scss';
 
 const Search = props => {
+  const { projectsList } = props;
+  const [projects, setProjects] = useState(projectsList);
+  const [query, setQuery] = useState('');
 
-  const {projects} = props;
+  const queryProjects = () => {
+    backendApi.getProjectsByQuery(query)
+      .then(p => setProjects(p));
+  }
 
   return (
     <div className={styles.Search}>
@@ -16,13 +23,13 @@ const Search = props => {
           <div className={styles.halfBackground}></div>
           <div className={styles.searchWrapper}>
             <div className={styles.mainWrapperSearchFilter}>
-              <SearchFilter className={styles.SearchFilter} />
+              <SearchFilter query={query} setQuery={setQuery} filterProjects={queryProjects} className={styles.SearchFilter} />
             </div>
             <h2 className={styles.title}>
-              Web ui
+              {query}
             </h2>
             <span className={styles.resultNumber}>
-              10,000+ web ui images
+              10,000+ images
             </span>
           </div>
         </section>
@@ -37,7 +44,7 @@ const Search = props => {
 export async function getStaticProps(context) {
   return {
     props: {
-      projects: await backendApi.getProjects(),
+      projectsList: await backendApi.getProjects(),
     }
   }
 }
