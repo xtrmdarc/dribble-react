@@ -41,6 +41,9 @@
     }
     
     .filtersSection {
+      display: flex;
+      margin-bottom: $broadSpace;
+      align-items: center;
 
       .outerCategoryFilterWrapper {
         width: 60%;

@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import CategoriesFilter from '../components/search/CategoriesFilter';
 import ProjectsList from '../components/search/ProjectsList';
 import SearchFilter from '../components/search/SearchFilter';
+import SortDropDownButton from '../components/search/SortDropDownButton';
 import backendApi from '../lib/backendApi';
 import { changeSearchQuery, setSearchCategoryFilter } from '../redux/actions';
 import styles from '../styles/sass/Search.module.scss';
@@ -37,6 +38,7 @@ const Search = props => {
         </section>
         <section className={styles.ProjectListWrapper}>
           <div className={styles.filtersSection}>
+            <SortDropDownButton />
             <div className={styles.outerCategoryFilterWrapper}>
               <CategoriesFilter 
                 filterCategoryId={filterCategoryId}

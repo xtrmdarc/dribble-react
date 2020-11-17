@@ -1,0 +1,19 @@
+@import '../../variables';
+
+.SortDropDownButton {
+  margin-right: $broadSpace;
+  position: relative;
+  @include filterButton;
+}
+
+.dropDownList {
+  display: flex;
+  flex-direction: column;
+  padding: $closeSpace;
+  width: 150px;
+  max-width: 100%;
+  
+  li {
+    display: flex;
+  }
+}
