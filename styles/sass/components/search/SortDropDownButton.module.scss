@@ -1,19 +1,40 @@
 @import '../../variables';
 
+.sortButtonWrapper {
+  position: relative;
+}
+
 .SortDropDownButton {
   margin-right: $broadSpace;
   position: relative;
   @include filterButton;
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .dropDownList {
   display: flex;
   flex-direction: column;
-  padding: $closeSpace;
+  padding: 0;
   width: 150px;
   max-width: 100%;
   
   li {
     display: flex;
+    padding: calc(#{$closeSpace / 2}) $closeSpace;
+
+    &:hover {
+      background: $grayColor;
+    }
+  }
+
+  li:first-child {
+    margin-top: 5px;
+  }
+
+  li:last-child {
+    margin-bottom: 5px;
   }
 }

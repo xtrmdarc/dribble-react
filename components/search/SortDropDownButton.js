@@ -1,25 +1,35 @@
 
-import { useEffect, useState } from 'react';
 import useVisible from '../../lib/customHooks/useVisible';
 import styles from '../../styles/sass/components/search/SortDropDownButton.module.scss';
 import FloatingDropDown from '../util/FloatingDropDownList';
+import { AiOutlineDown } from "react-icons/ai";
+import { useState } from 'react';
 
 const SortDropDownButton = props => {
-  const {ref, isVisible, setIsVisible} = useVisible(true);
+  const {ref, isVisible, setIsVisible} = useVisible(false);
+  const [title, setTitle] = useState('Hola');
+
+  const handleDropDownItemClick = (e) => {
+    setIsVisible(false);
+    setTitle(e.target.textContent);
+  }
 
   const dropDownList = (
     <ul className={styles.dropDownList} ref={ref} >
-      <li>Hola</li>
-      <li>Soy</li>
-      <li>Lista</li>
+      <li onClick={handleDropDownItemClick} >Hola</li>
+      <li onClick={handleDropDownItemClick} >Soy</li>
+      <li onClick={handleDropDownItemClick} >Lista</li>
     </ul>
   );
 
   return (
-    <button className={styles.SortDropDownButton} onClick={() => setIsVisible(true)} >
-      Popular
+    <div className={styles.sortButtonWrapper}>
+      <button className={styles.SortDropDownButton} onClick={() => setIsVisible(true)} >
+        <span>{title}</span>
+        <AiOutlineDown style={{height: '12px', transform: isVisible ? 'rotate(0.5turn)' :  ''}} />
+      </button>
       <FloatingDropDown render={dropDownList} opened={isVisible} />
-    </button>
+    </div>
   );
 };
 

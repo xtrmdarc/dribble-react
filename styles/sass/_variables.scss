@@ -21,6 +21,9 @@ $lightBoxShadow: 5px 5px 10px 1px rgba(27, 27, 27, 0.103);
   background: white;
   padding: calc(#{$closeSpace} / 1.6) $closeSpace;
   border-radius: 10px;
-
+  color: $lightGrayColor;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
