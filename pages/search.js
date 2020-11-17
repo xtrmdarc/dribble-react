@@ -22,7 +22,7 @@ const Search = props => {
   return (
     <>
     <Head>
-      <title>Dribble search</title>
+      <title>Dribbble search</title>
     </Head>
     <div className={styles.Search}>
       <Header />
