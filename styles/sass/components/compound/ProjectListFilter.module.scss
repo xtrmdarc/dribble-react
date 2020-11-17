@@ -1,0 +1,19 @@
+@import '../../variables';
+
+.filtersSection {
+  display: flex;
+  margin-bottom: $broadSpace;
+  align-items: center;
+
+  .outerCategoryFilterWrapper {
+    width: 60%;
+  }
+}
+
+.ProjectListWrapper {
+  margin: 0 calc(#{$broadSpace} * 2);
+
+  @media screen and (max-width: $mediumScreen) {
+    margin: 0 $closeSpace;
+  }
+}

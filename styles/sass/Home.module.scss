@@ -1,0 +1,42 @@
+@import './variables';
+
+.main {
+  width: 100%;
+
+  .aboveTheFold {
+    background: #F9F8FD;
+    display: flex;
+    padding: calc(#{$broadSpace} * 2);
+    width: 100%;
+    margin-bottom: $broadSpace;
+    align-items: center;
+  
+    .leftSection {
+      width: 53%;
+
+      h1 {
+        font-size: 3.5em;
+        margin-bottom: $closeSpace;
+      }
+
+      p {
+        margin-bottom: $closeSpace;
+        font-size: $mediumTextSize;
+      }
+
+      button {
+        @include button;
+        margin: 0;
+      }
+    }
+
+    .rightSection {
+      width: 47%;
+
+      img {
+        width: 100%;
+      }
+
+    }
+  }
+}

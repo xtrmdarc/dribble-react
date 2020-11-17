@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Header from '../components/Header';
 import CategoriesFilter from '../components/search/CategoriesFilter';
 import ProjectsList from '../components/search/ProjectsList';
+import ProjectListFilter from '../components/compound/ProjectListFilter';
 import SearchFilter from '../components/search/SearchFilter';
 import SortDropDownButton from '../components/search/SortDropDownButton';
 import backendApi from '../lib/backendApi';
@@ -41,17 +42,11 @@ const Search = props => {
             </span>
           </div>
         </section>
-        <section className={styles.ProjectListWrapper}>
-          <div className={styles.filtersSection}>
-            <SortDropDownButton />
-            <div className={styles.outerCategoryFilterWrapper}>
-              <CategoriesFilter 
-                filterCategoryId={filterCategoryId}
-                setCategoryFilter={setCategoryFilter} />
-            </div>
-          </div>
-          <ProjectsList projects={projects} filterCategoryId={filterCategoryId} />
-        </section>
+        <ProjectListFilter 
+          projects={projects} 
+          filterCategoryId={filterCategoryId}
+          setCategoryFilter={setCategoryFilter}
+           />
       </main>
     </div>
     </>

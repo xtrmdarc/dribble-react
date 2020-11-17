@@ -32,3 +32,19 @@ $smallScreen: 478px;
   }
 }
 
+@mixin button {
+  margin-left: calc(#{$closeSpace} / 1.4);
+  padding: calc(#{$closeSpace} / 1.4) $closeSpace;
+  border-radius: 8px;
+
+  &.accent {
+    background: $accentColor;
+    color: white;
+  }
+
+  &.blank {
+    background: white;
+    color: black;
+  }
+}
+

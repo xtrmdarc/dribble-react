@@ -1,65 +1,65 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { connect } from 'react-redux';
+import ProjectListFilter from '../components/compound/ProjectListFilter';
+import Header from '../components/Header'
+import backendApi from '../lib/backendApi'
+import styles from '../styles/sass/Home.module.scss'
 
-export default function Home() {
+const Home = props => {
+  const {projects, setCategoryFilter, filterCategoryId} = props;
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Dribble</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
+        <Header />
+        <div className={styles.aboveTheFold} >
+          <div className={styles.leftSection}>
+            <h1>Discover the world’s top designers &amp; creatives</h1>
             <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
+              Dribbble is the leading destination to find & showcase creative 
+              work and home to the world's best design professionals.
             </p>
-          </a>
+            <button className={styles.accent}>
+              Sign up
+            </button>
+          </div>
+          <div className={styles.rightSection}>
+            <img src="https://cdn.dribbble.com/assets/art-banners/romainbriaux-db195db2c89f7f239f555901e8578e08987c000329287238e961b378a62a15e5.png" />
+          </div>
         </div>
+        <ProjectListFilter 
+          projects={projects} 
+          filterCategoryId={filterCategoryId}
+          setCategoryFilter={setCategoryFilter}
+           />
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
       </footer>
     </div>
   )
 }
+
+export async function getStaticProps() {
+  return {
+    props: {
+      projects: await backendApi.getProjects(),
+    }
+  }
+}
+
+const mapStateToProps = (state) => ({
+  filterCategoryId: state.search.categoryId,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setCategoryFilter: (filter) => dispatch(setSearchCategoryFilter(filter)),
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
