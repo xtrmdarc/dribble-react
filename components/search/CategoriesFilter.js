@@ -7,9 +7,11 @@ const CategoriesFilter = props => {
   const [categories, setCategories] = useState([]);
   const categoriesFilter = useRef(null);
 
+  const {setCategoryFilter, filterCategoryId} = props;
+
   useEffect(() => {
     backendApi.getCategories()
-      .then(p => setCategories(p));
+      .then(p => setCategories([{id: -1, name:'All'},...p]));
   }, []);
 
   const scrollRight = () => {
@@ -26,7 +28,11 @@ const CategoriesFilter = props => {
       <AiOutlineLeft onClick={scrollLeft} className={styles.leftScroll} />
       <ul ref={categoriesFilter} className={styles.CategoriesFilter} >
         {categories.map(category => (
-          <li className={styles.categoryItem}>
+          <li 
+            key={category.id}
+            className={`${styles.categoryItem} ${filterCategoryId === category.id ? styles.selected : ''}`}
+            onClick={() => setCategoryFilter(category.id)}
+            >
             {category.name}
           </li>
         ))}

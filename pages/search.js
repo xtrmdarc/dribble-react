@@ -5,11 +5,11 @@ import CategoriesFilter from '../components/search/CategoriesFilter';
 import ProjectsList from '../components/search/ProjectsList';
 import SearchFilter from '../components/search/SearchFilter';
 import backendApi from '../lib/backendApi';
-import { changeSearchQuery } from '../redux/actions';
+import { changeSearchQuery, setSearchCategoryFilter } from '../redux/actions';
 import styles from '../styles/sass/Search.module.scss';
 
 const Search = props => {
-  const { projectsList, query, setQuery } = props;
+  const { projectsList, query, setQuery, setCategoryFilter, filterCategoryId } = props;
   const [projects, setProjects] = useState(projectsList);
 
   const queryProjects = () => {
@@ -36,10 +36,15 @@ const Search = props => {
           </div>
         </section>
         <section className={styles.ProjectListWrapper}>
-          <div className="filtersSection">
-            <CategoriesFilter />
+          <div className={styles.filtersSection}>
+            <div className={styles.outerCategoryFilterWrapper}>
+              <CategoriesFilter 
+                filterCategoryId={filterCategoryId}
+                setCategoryFilter={setCategoryFilter} />
+            </div>
+            
           </div>
-          <ProjectsList projects={projects} />
+          <ProjectsList projects={projects} filterCategoryId={filterCategoryId} />
         </section>
       </main>
     </div>
@@ -56,10 +61,12 @@ export async function getStaticProps(context) {
 
 const mapStateToProps = (state) => ({
   query: state.search.query,
+  filterCategoryId: state.search.categoryId,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setQuery: (query) => dispatch(changeSearchQuery(query)),
+  setCategoryFilter: (filter) => dispatch(setSearchCategoryFilter(filter)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

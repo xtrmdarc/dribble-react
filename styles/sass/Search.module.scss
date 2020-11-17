@@ -39,6 +39,13 @@
         }
       }
     }
+    
+    .filtersSection {
+
+      .outerCategoryFilterWrapper {
+        width: 60%;
+      }
+    }
 
     .ProjectListWrapper {
       margin: 0 calc(#{$broadSpace} * 2);
