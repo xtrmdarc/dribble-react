@@ -15,10 +15,13 @@
     font-size: 16px;
     font-weight: 300;
     color: $lightGrayColor;
+    padding: calc(#{$closeSpace} / 2);
+    border-radius: 10px;
 
     &.selected {
       color: black;
       font-weight: 400;
+      background: $grayColor;
     }
 
     &:hover {

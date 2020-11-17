@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
@@ -19,6 +20,10 @@ const Search = props => {
   }
 
   return (
+    <>
+    <Head>
+      <title>Dribble search</title>
+    </Head>
     <div className={styles.Search}>
       <Header />
       <main className={styles.contentWrapper}>
@@ -50,6 +55,7 @@ const Search = props => {
         </section>
       </main>
     </div>
+    </>
   );
 };
 
