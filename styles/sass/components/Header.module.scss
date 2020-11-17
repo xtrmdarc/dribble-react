@@ -8,6 +8,10 @@
   height: $headerHeight;
   color: $darkGrayColor;
 
+  @media screen and (max-width: $mediumScreen) {
+    padding: 0 $closeSpace;
+  }
+
   .leftSection {
     display: flex;
     align-items: center;
@@ -18,6 +22,11 @@
 
     nav {
       display: flex;
+
+      @media screen and (max-width: $mediumScreen) {
+        display: none;
+      }
+
       ul {
         display: flex;
         list-style-type: none;

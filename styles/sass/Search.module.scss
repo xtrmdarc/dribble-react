@@ -26,6 +26,9 @@
         .mainWrapperSearchFilter {
           position: relative;
           transform: translateY(-50%);
+          display: flex;
+          justify-content: center;
+          width: 100%;
         }
         
         .title {
@@ -52,6 +55,10 @@
 
     .ProjectListWrapper {
       margin: 0 calc(#{$broadSpace} * 2);
+
+      @media screen and (max-width: $mediumScreen) {
+        margin: 0 $closeSpace;
+      }
     }
   }
 }

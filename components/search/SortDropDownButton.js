@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 const SortDropDownButton = props => {
   const {ref, isVisible, setIsVisible} = useVisible(false);
-  const [title, setTitle] = useState('Hola');
+  const [title, setTitle] = useState('Popular');
 
   const handleDropDownItemClick = (e) => {
     setIsVisible(false);
@@ -16,9 +16,8 @@ const SortDropDownButton = props => {
 
   const dropDownList = (
     <ul className={styles.dropDownList} ref={ref} >
-      <li onClick={handleDropDownItemClick} >Hola</li>
-      <li onClick={handleDropDownItemClick} >Soy</li>
-      <li onClick={handleDropDownItemClick} >Lista</li>
+      <li onClick={handleDropDownItemClick} >Popular</li>
+      <li onClick={handleDropDownItemClick} >Most Viewed</li>
     </ul>
   );
 

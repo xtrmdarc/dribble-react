@@ -9,6 +9,14 @@
   .ProjectItem {
     width: calc( ((100% - #{$closeSpace * 3 * 2}) / 3) );
     margin: 0 $closeSpace $closeSpace $closeSpace;
+
+    @media screen and (max-width: 964px) {
+      width: calc( ((100% - #{$closeSpace * 2 * 2}) / 2) );
+    }
+
+    @media screen and (max-width: $mediumScreen) {
+      width: calc( ((100% - #{$closeSpace * 1 * 2}) ) );
+    }
   }
 }
 

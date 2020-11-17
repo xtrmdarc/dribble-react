@@ -16,6 +16,11 @@ $headerHeight: 80px;
 
 $lightBoxShadow: 5px 5px 10px 1px rgba(27, 27, 27, 0.103);
 
+
+$mediumScreen: 768px;
+$largeScreen: 1024px;
+$smallScreen: 478px;
+
 @mixin filterButton {
   border: 1px $thinGrayColor solid;
   background: white;
