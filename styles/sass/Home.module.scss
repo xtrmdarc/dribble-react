@@ -21,13 +21,15 @@
 
       p {
         margin-bottom: $closeSpace;
-        font-size: $mediumTextSize;
+        font-size: 17px;
+        font-weight: 300;
+        line-height: 1.5em;
       }
 
       button {
         @include button;
         margin: 0;
-      }
+      }      
     }
 
     .rightSection {
@@ -37,6 +39,34 @@
         width: 100%;
       }
 
+    }
+
+    @media screen and (max-width: $largeScreen) {
+      padding: calc(#{$broadSpace} * 2) $broadSpace;
+
+      .leftSection {
+        h1 {
+          font-size: 2.3rem;
+        }
+      }  
+    }
+
+    @media screen and (max-width: $mediumScreen) {
+      padding: calc(#{$broadSpace} * 2) $broadSpace;
+      flex-direction: column;
+
+      .leftSection {
+        width: auto;
+        order: 2;
+        text-align: center;
+
+        h1 {
+          font-size: 1.8rem;
+        }
+      }
+      .rightSection {
+        order: 1;
+      }
     }
   }
 }
