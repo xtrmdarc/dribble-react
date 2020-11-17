@@ -1,5 +1,5 @@
 
-// import styles from '../../styles/sass/components/search/ProjectItem.module.scss';
+import styles from '../../styles/sass/components/search/ProjectItem.module.scss';
 
 const ProjectItem = props => {
   const {className, project} = props;
