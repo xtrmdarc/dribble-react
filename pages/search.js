@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import CategoriesFilter from '../components/search/CategoriesFilter';
@@ -49,7 +49,6 @@ const Search = props => {
                 filterCategoryId={filterCategoryId}
                 setCategoryFilter={setCategoryFilter} />
             </div>
-            
           </div>
           <ProjectsList projects={projects} filterCategoryId={filterCategoryId} />
         </section>
