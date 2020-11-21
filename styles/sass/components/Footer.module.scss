@@ -26,6 +26,13 @@
         }
       }
 
+      @media screen and (max-width: $mediumScreen) {
+        width: 100%;
+        p {
+          width: calc(100% / 2);
+        }
+      }
+
       .logo {
         width: 100px;
         margin-bottom: $closeSpace;
@@ -47,6 +54,10 @@
 
       @media screen and (max-width: $largeScreen) {
         width: calc(100% / 4);
+      }
+
+      @media screen and (max-width: $mediumScreen) {
+        width: calc(100% / 2);
       }
       
       .navLinks {
