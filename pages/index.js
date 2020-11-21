@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { connect } from 'react-redux';
 import ProjectListFilter from '../components/compound/ProjectListFilter';
+import Footer from '../components/Footer';
 import Header from '../components/Header'
 import backendApi from '../lib/backendApi'
 import styles from '../styles/sass/Home.module.scss'
@@ -38,9 +39,7 @@ const Home = props => {
           setCategoryFilter={setCategoryFilter}
            />
       </main>
-
-      <footer className={styles.footer}>
-      </footer>
+      <Footer />
     </div>
   )
 }

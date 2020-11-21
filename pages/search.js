@@ -10,6 +10,7 @@ import SortDropDownButton from '../components/search/SortDropDownButton';
 import backendApi from '../lib/backendApi';
 import { changeSearchQuery, setSearchCategoryFilter } from '../redux/actions';
 import styles from '../styles/sass/Search.module.scss';
+import Footer from '../components/Footer';
 
 const Search = props => {
   const { projectsList, query, setQuery, setCategoryFilter, filterCategoryId } = props;
@@ -49,6 +50,8 @@ const Search = props => {
            />
       </main>
     </div>
+    <Footer />
+
     </>
   );
 };
